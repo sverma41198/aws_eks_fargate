@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dot-net-app
+  namespace: staging
+spec:
+  selector:
+    matchLabels:
+      run: dot-net-app
+  # remove replica if using gitops
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: dot-net-app
+    spec:
+      containers:
+      - name: dot-net-app
+        image: 028677550726.dkr.ecr.ap-south-1.amazonaws.com/dotnet-docker-local:0.1.0
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 200m
+            memory: 256Mi
+          requests:
+            cpu: 200m
+            memory: 256Mi
