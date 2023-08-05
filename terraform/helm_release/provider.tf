@@ -8,7 +8,7 @@ data "aws_ecr_authorization_token" "token" {
 
 provider "helm" {
   kubernetes {
-    config_path=/home/.kubernetes/config
+    config_path= "/home/ec2-user/.kube/config"
   }
   registry {
     url      = var.aws_ecr_id

@@ -4,7 +4,7 @@ resource "helm_release" "my_release" {
   create_namespace = true
   
   repository          = var.aws_ecr_id
-  chart               = var.chat_name
+  chart               = var.chart_name
   version             = var.chart_version
   
 }
