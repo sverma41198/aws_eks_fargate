@@ -8,10 +8,9 @@
 
 ![](Aspose.Words.d0a27e65-6b92-4e5a-9a3a-16478d96c81b.001.png)
 
-```console
+
 |FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build<br>WORKDIR /source<br><br>*# copy csproj and restore as distinct layers*<br>COPY aspnetapp/\*.csproj .<br>RUN dotnet restore --use-current-runtime  <br><br>*# copy everything else and build app*<br>COPY aspnetapp/. .<br>RUN dotnet publish --use-current-runtime --self-contained false --no-restore -o /app<br><br><br>*# final stage/image*<br>FROM mcr.microsoft.com/dotnet/aspnet:7.0<br>WORKDIR /app<br>COPY --from=build /app .<br>ENTRYPOINT ["dotnet", "aspnetapp.dll"]|
 | :- |
-```
 
 # <a name="_tpq9x6eblmej"></a>Step 2: Create ECR Private Repository for Docker image and Helm Chart
 <a name="_m6a1o8l53igi"></a>create-repo.sh <application\_name>    in ./script example: create-repo dotnet-app-testing
@@ -42,7 +41,11 @@
 # <a name="_6zs9w2o4rv0b"></a>Step 1: Set Up a Remote Backend for Terraform State File
 1. <a name="_2i11az468imk"></a>Create an S3 bucket
 
-|aws s3api create-bucket --bucket <my-terraform-state-bucket> --region <region> --create-bucket-configuration LocationConstraint=<region>|
+|
+```console
+aws s3api create-bucket --bucket <my-terraform-state-bucket> --region <region> --create-bucket-configuration LocationConstraint=<region>
+```
+|
 | :- |
 
 
