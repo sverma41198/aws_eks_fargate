@@ -41,12 +41,10 @@
 # <a name="_6zs9w2o4rv0b"></a>Step 1: Set Up a Remote Backend for Terraform State File
 1. <a name="_2i11az468imk"></a>Create an S3 bucket
 
-|
+
 ```console
 aws s3api create-bucket --bucket <my-terraform-state-bucket> --region <region> --create-bucket-configuration LocationConstraint=<region>
 ```
-|
-| :- |
 
 
 
