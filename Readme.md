@@ -78,9 +78,9 @@ aws s3api create-bucket --bucket <my-terraform-state-bucket> --region <region> -
 
 
 
-
-|***aws* *eks* *update*-*kubeconfig* --*name* *<cluster-name>* --*region* *<region>***|
-| :- |
+```console
+aws eks update -kubeconfig --name <cluster-name> --region <region>
+```
 #
 # <a name="_1at172kenbxe"></a><a name="_oy30lv7zelx3"></a>Step 6: Creating helm-release.sh to deploy the .Net application in the fargate cluster using terraform code
 <a name="_ifk4h5fzxi70"></a>helm-release.sh <chart\_version> - create helm release and deploy into eks cluster in aws.    example: helm-release.sh 1.0.0    
